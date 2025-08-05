@@ -6,7 +6,20 @@
                     <mat-card-title>Grassland Ventures Fruit Database:</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <table class="mat-table" mat-table [dataSource]="viewModel.fruitData$">
+                    <mat-form-field class="me-2">
+                        <input matInput [formControl]="filterControl" placeholder="Filter" />
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-select [formControl]="sortingControl" placeholder="Sort Order">
+                            <mat-option *ngFor="let sortingOrder of fruitSortingOrder" [value]="sortingOrder">
+                                {{ sortingOrder }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-content>
+                    <table class="mat-table" mat-table [dataSource]="viewModel.fruitData$ | async">
                         <mat-text-column name="name"></mat-text-column>
                         <mat-text-column name="id"></mat-text-column>
                         <mat-text-column name="genus"></mat-text-column>
