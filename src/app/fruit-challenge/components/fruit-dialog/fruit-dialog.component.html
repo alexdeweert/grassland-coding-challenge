@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<mat-dialog-content [ngStyle]="{'background-position': backgroundPos}" (mousemove)="onMouseMove($event)" #dialogbox>
+    <table class="fruit-info-table">
+        <tbody>
+            <tr>
+                <td>ID:</td>
+                <td>{{data.id}}</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>{{data.name}}</td>
+            </tr>
+            <tr>
+                <td>Genus:</td>
+                <td>{{data.genus}}</td>
+            </tr>
+            <tr>
+                <td>Family:</td>
+                <td>{{data.family}}</td>
+            </tr>
+            <tr>
+                <td>Order:</td>
+                <td>{{data.order}}</td>
+            </tr>
+            <tr>
+                <td>Calories:</td>
+                <td>{{data.nutritions.calories}}</td>
+            </tr>
+            <tr>
+                <td>Carbohydrates:</td>
+                <td>{{data.nutritions.carbohydrates}}</td>
+            </tr>
+            <tr>
+                <td>Sugar:</td>
+                <td>{{data.nutritions.sugar}}</td>
+            </tr>
+            <tr>
+                <td>Fat:</td>
+                <td>{{data.nutritions.fat}}</td>
+            </tr>
+            <tr>
+                <td>Protein:</td>
+                <td>{{data.nutritions.protein}}</td>
+            </tr>
+        </tbody>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button="filled" (click)="onCloseClick()">Close</button>
+</mat-dialog-actions>

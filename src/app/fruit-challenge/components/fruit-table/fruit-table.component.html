@@ -40,7 +40,7 @@
                             <td mat-cell *matCellDef="let fruit"> {{fruit.nutritions.sugar}} </td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-                        <tr class="fruit-row" [ngClass]="getDataRowClasses(myRowData)" mat-row *matRowDef="let myRowData; columns: columnsToDisplay">
+                        <tr class="fruit-row" [ngClass]="getDataRowClasses(myRowData)" mat-row *matRowDef="let myRowData; columns: columnsToDisplay" (click)="openDialog(myRowData)">
                         </tr>
                     </table>
                     <div class="loading-spinner-container" *ngIf="!!(viewModel.loadingFruit$|async)">

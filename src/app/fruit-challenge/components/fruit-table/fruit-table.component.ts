@@ -1,9 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import {FruitTableViewModel} from './fruit-table-view-model';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 import { FruitSort } from '../../models/sorting';
 import { Fruit } from '../../models/fruit';
+import {
+  MatDialog
+} from '@angular/material/dialog';
+import { FruitDialogComponent } from '../fruit-dialog/fruit-dialog.component';
 
 @Component({
   selector: 'app-fruit-table',
@@ -16,15 +20,15 @@ export class FruitTableComponent implements OnInit {
   columnsToDisplay = ['id', 'name', 'genus', 'calories', 'carbohydrates', 'sugar'];
   filterControl = new FormControl('');
   sortingControl = new FormControl<FruitSort>(null);
+  dialog = inject(MatDialog);
   fruitSortingOrder = [
     FruitSort.NAME_ASC,
     FruitSort.NAME_DESC,
     FruitSort.CARBS_ASC,
     FruitSort.CARBS_DESC
   ];
-  constructor(public viewModel: FruitTableViewModel) {
 
-  }
+  constructor(public viewModel: FruitTableViewModel) { }
 
   ngOnInit(): void {
     this.subs.push(
@@ -48,6 +52,12 @@ export class FruitTableComponent implements OnInit {
 
   getDataRowClasses(value: Fruit) {
     return value.nutritions.calories <= 50 && value.nutritions.sugar >= 8 ? 'special-row-color' : ''
+  }
+
+  openDialog(fruitData: Fruit): void {
+    this.dialog.open(FruitDialogComponent, {
+      data: fruitData
+    });
   }
 
   ngOnDestroy() {

@@ -1,0 +1,58 @@
+.mat-mdc-dialog-content {
+    min-width: 368px;
+    background-image: url('/assets/fruit.png');
+    background-repeat: no-repeat;
+}
+
+.mat-mdc-dialog-actions.mdc-dialog__actions {
+    justify-content: end;
+}
+
+.fruit-info-table {
+    width: 100%;
+    font-size: large;
+    color: #FFF;
+}
+
+.fruit-info-table > tbody > tr {
+    padding: 4px;
+    border-radius: 4px;
+    text-align: start;
+    transition: background-color 0.25s ease-in-out;
+    transform-origin: left;
+
+    &:hover {
+        background-color: rgb(220 220 220 / 40%);;
+    }
+
+    &>td {
+        padding: 8px;
+    }
+}
+
+.mdc-button {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    transform-origin: center;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.mat-mdc-dialog-title.mdc-dialog__title {
+  display: inline-block;
+  animation: widen-spacing 2s ease-in-out 1 forwards;
+  letter-spacing: 3px;
+}
+
+@keyframes widen-spacing {
+  0% {
+    letter-spacing: 3px;
+  }
+  50% {
+    letter-spacing: 18px;
+  }
+  100% {
+    letter-spacing: 3px;
+  }
+}
