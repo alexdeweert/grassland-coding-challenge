@@ -3,6 +3,7 @@ import {FruitTableViewModel} from './fruit-table-view-model';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subscription } from 'rxjs';
 import { FruitSort } from '../../models/sorting';
+import { Fruit } from '../../models/fruit';
 
 @Component({
   selector: 'app-fruit-table',
@@ -39,6 +40,14 @@ export class FruitTableComponent implements OnInit {
         distinctUntilChanged()
       ).subscribe(sortingVal => this.viewModel.sortFruit(sortingVal))
     );
+  }
+
+  getCaloriesRowClass(value: Fruit) {
+    return value.nutritions.calories <= 50 ? 'bold' : ''
+  }
+
+  getDataRowClasses(value: Fruit) {
+    return value.nutritions.calories <= 50 && value.nutritions.sugar >= 8 ? 'special-row-color' : ''
   }
 
   ngOnDestroy() {
