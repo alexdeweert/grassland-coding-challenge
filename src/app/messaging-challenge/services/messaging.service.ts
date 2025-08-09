@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {of} from 'rxjs';
+import {concatMap, delay, from, of, scan} from 'rxjs';
 import {TextMessage} from '../models/text-message';
 import {ImageMessage} from '../models/image-message';
 
@@ -7,8 +7,7 @@ import {ImageMessage} from '../models/image-message';
   providedIn: 'root'
 })
 export class MessagingService {
-
-  public readonly messages$ = of([
+  public readonly messages$ = from([
     new TextMessage('Anna', 'assets/person2.png', 'Hello!'),
     new TextMessage('Bob', 'assets/person1.jpeg' ,'Hi!'),
     new TextMessage('Anna', 'assets/person2.png', 'How have you been?'),
@@ -22,6 +21,13 @@ export class MessagingService {
     ),
     new TextMessage('Bob', 'assets/person1.jpeg' ,'Wow! That\'s exciting! I can\'t wait to see what he looks like'),
     new ImageMessage('Anna', 'assets/person2.png', 'assets/dog.jpeg'),
-  ])
-
+  ]).pipe(
+    concatMap(message => {
+      const rand = (Math.floor((Math.random() * 1000 % 5)) + 1) * 1000
+      return of(message).pipe(delay(rand))
+    }),
+    scan((messageAccumulator, message) => {
+      return [...messageAccumulator, message]
+    }, [] as(TextMessage | ImageMessage)[])
+  )
 }
