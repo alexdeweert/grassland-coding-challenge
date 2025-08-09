@@ -21,7 +21,8 @@ export class MessagingService {
       'so adorable and fluffy! I\'ll send you a picture of him. One sec!'
     ),
     new TextMessage('Bob', 'assets/person1.jpeg' ,'Wow! That\'s exciting! I can\'t wait to see what he looks like'),
-    new ImageMessage('Anna', 'assets/person2.png', 'assets/dog.jpeg')
+    new ImageMessage('Anna', 'assets/person2.png', 'assets/dog.jpeg'),
+    new ImageMessage('Bob', 'assets/person1.jpeg', 'assets/dog.jpeg')
   ])
 
 }

@@ -1,0 +1,15 @@
+.image-message-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+
+    img {
+        border-radius: 8px;
+        padding: 4px;
+        min-width: 0;
+    }
+
+    &.anna {
+        flex-direction: row-reverse;
+    }
+}

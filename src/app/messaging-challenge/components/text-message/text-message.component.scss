@@ -1,6 +1,7 @@
 .text-message-container {
     display: flex;
     align-items: flex-end;
+    gap: 8px;
 
     .text-message-content {
         border-radius: 8px;
@@ -11,13 +12,11 @@
         flex-direction: row-reverse;
         .text-message-content {
             background-color: #4267B2;
-            margin-right: 8px;
         }
     }
     &.bob {
         .text-message-content {
             background-color: #8D8E91;
-            margin-left: 8px;
         }
     }
 }

@@ -2,10 +2,7 @@
   <div class="fake-phone">
      <ng-container *ngIf="messagingService.messages$ | async as messages">
       <ng-container *ngFor="let message of messages">
-        <app-text-message *ngIf="isTextMessage(message); else imageMessage" [message]="message"></app-text-message>
-        <ng-template #imageMessage>
-          <!-- TODO: Display image message -->
-        </ng-template>
+        <app-text-message *ngIf="isTextMessage(message)" [message]="message"></app-text-message>
       </ng-container>
      </ng-container>
   </div>

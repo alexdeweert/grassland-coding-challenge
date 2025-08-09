@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MessagingService } from '../../services/messaging.service';
 import { TextMessage } from '../../models/text-message';
 import { Message } from '../../models/message';
+import { ImageMessage } from '../../models/image-message';
 
 @Component({
   selector: 'app-messaging',
@@ -10,7 +11,7 @@ import { Message } from '../../models/message';
 })
 export class MessagingComponent {
   constructor(public messagingService: MessagingService) { }
-  
+
   isTextMessage(message: Message): message is TextMessage {
     return message instanceof TextMessage
   }
