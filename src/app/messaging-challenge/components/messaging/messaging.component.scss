@@ -13,4 +13,9 @@
   flex-direction: column;
   overflow-y: scroll;
   border-radius: 16px;
+  padding: 8px;
+}
+
+app-text-message:not(:last-child) {
+  margin-bottom: 8px;
 }

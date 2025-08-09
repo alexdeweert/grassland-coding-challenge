@@ -57,7 +57,6 @@ const routes: Routes = [
     MatSelectModule,
     MatDialogModule,
     FruitDialogModule
-
   ],
   exports: [RouterModule],
   declarations: [

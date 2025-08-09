@@ -1,0 +1,6 @@
+<div [ngClass]="message.from.toLowerCase()" class="text-message-container">
+    <app-profile-picture [profilePictureUrl]="message.profilePictureUrl"></app-profile-picture>
+    <div class="text-message-content">
+        {{ message.content }}
+    </div>
+</div>

@@ -1,18 +1,7 @@
 <div class="container">
   <div class="fake-phone">
-    <!-- Will be replaced with a TextMessage component instead of a div -->
      <ng-container *ngIf="messagingService.messages$ | async as messages">
-      <div *ngFor="let message of messages ">
-        <div>
-          From: {{ message.from }}
-        </div>
-        <div>
-          PicURL: {{ message.profilePictureUrl }}
-        </div>
-        <div>
-          Content: {{ message.content }}
-        </div>
-      </div>
+      <app-text-message *ngFor="let message of messages" [message]="message"></app-text-message>
      </ng-container>
   </div>
 </div>

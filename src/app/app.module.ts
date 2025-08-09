@@ -15,6 +15,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {MessagingComponent} from './messaging-challenge/components/messaging/messaging.component';
 import {MatCardModule} from '@angular/material/card';
+import {TextMessageModule} from './messaging-challenge/components/text-message/text-message.module';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     RouterModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    TextMessageModule
   ],
   declarations: [
     AppComponent,
