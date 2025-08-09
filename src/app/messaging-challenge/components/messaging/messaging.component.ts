@@ -15,4 +15,8 @@ export class MessagingComponent {
   isTextMessage(message: Message): message is TextMessage {
     return message instanceof TextMessage
   }
+
+  isImageMessage(message: Message): message is ImageMessage {
+    return message instanceof ImageMessage
+  }
 }

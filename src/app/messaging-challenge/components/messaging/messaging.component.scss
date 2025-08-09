@@ -16,6 +16,7 @@
   padding: 8px;
 }
 
-app-text-message:not(:last-child) {
+app-text-message:not(:last-child),
+app-image-message:not(:last-child) {
   margin-bottom: 8px;
 }
